@@ -7,14 +7,15 @@ class Program
         public decimal Price { get; set; } = 0;
         public int Amount { get; set; } = 0;
 
-        public string Name { get; } = null;
+        public string Name { get; init; } = null;
 
         public decimal TotValue()
         {
             var _amount = Price * Amount;
-            return _amount;
+            return Price * Amount;
         }
-        public string WhoAmI()
+        
+        public override string ToString()
         {
             var _s = $"My {Name} portfolio is worth {TotValue():N2} Sek";
             return _s;
@@ -32,16 +33,28 @@ class Program
             Price = _price;
             Amount = _amount;
         }
+        public Stock(string _name, decimal _price)
+        {
+            Name = _name;
+            Price = _price;
+            Amount = 0;
+        }
     }
 
 
     static void Main(string[] args)
     {
         var stock1 = new Stock();
-        Console.WriteLine(stock1.WhoAmI());
+        Console.WriteLine(stock1);
 
         var stock2 = new Stock("SAS", 2.35M, 100);
-        Console.WriteLine(stock2.WhoAmI());
+        Console.WriteLine(stock2);
+
+        var stock3 = new Stock("Atlas Copco", 21.75M);
+        Console.WriteLine(stock3);
+
+        var stock4 = new Stock() {Price = 100.0M, Name = "GameStop"};
+        Console.WriteLine(stock4);
     }
 }
 
