@@ -4,10 +4,27 @@ class Program
 {
     public class Stock
     {
-        public decimal Price { get; set; } = 0;
+        private decimal _price;
+        public decimal Price
+        {
+            get => _price;
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception("Price cannot be 0 or negative");
+                }
+                else
+                {
+                    _price = value;
+                }
+            }
+        }
+
+
         public int Amount { get; set; } = 0;
 
-        public string Name { get; init; } = null;
+        public string Name { get; init; }
 
         public decimal TotValue()
         {
@@ -55,6 +72,10 @@ class Program
 
         var stock4 = new Stock() {Price = 100.0M, Name = "GameStop"};
         Console.WriteLine(stock4);
+
+        stock4.Price = -5.00M;
+        Console.WriteLine(stock4);
+
     }
 }
 
