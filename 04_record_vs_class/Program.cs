@@ -39,8 +39,6 @@ public class csPearl
     }
 }
 
-
-
 public record rePearl (int Size, enPearlColor Color, enPearlShape Shape, enPearlType Type)
 {
     //Your own constructor, must call this(record properties...)
