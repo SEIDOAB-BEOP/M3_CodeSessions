@@ -41,7 +41,17 @@ public class csPearl
 
 
 
-public record rePearl (int Size, enPearlColor Color, enPearlShape Shape, enPearlType Type);
+public record rePearl (int Size, enPearlColor Color, enPearlShape Shape, enPearlType Type)
+{
+    //Your own constructor, must call this(record properties...)
+    public rePearl(csSeedGenerator _seeder) : this (
+   
+        _seeder.Next(5, 25),
+        _seeder.FromEnum<enPearlColor>(),
+        _seeder.FromEnum<enPearlShape>(),
+        _seeder.FromEnum<enPearlType>())
+    { }
+}
 
 
 class Program
@@ -65,6 +75,9 @@ class Program
 
         var pr_c = pr with { Size = 5 };
         Console.WriteLine(pr_c);
+
+        var rnd_p = new rePearl(rnd);
+        Console.WriteLine(rnd_p);
     }
 }
 
