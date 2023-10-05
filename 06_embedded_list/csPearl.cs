@@ -7,6 +7,7 @@ namespace _06_embedded_list
     public enum enPearlShape { Round, DropShaped }
     public enum enPearlType { FreshWater, SaltWater }
 
+    #region Pearl as a class
     public class csPearl
     {
         public int Size { get; init; }
@@ -39,5 +40,22 @@ namespace _06_embedded_list
             Type = org.Type;
         }
     }
+    #endregion
+
+    #region Pearl as a record
+    public record rePearl(int Size, enPearlColor Color, enPearlShape Shape, enPearlType Type)
+    {
+        public override string ToString() => $"{Size}mm {Color} {Shape} {Type} pearl.";
+
+        //Your own constructor, must call this(record properties...)
+        public rePearl(csSeedGenerator _seeder) : this(
+
+            _seeder.Next(5, 25),
+            _seeder.FromEnum<enPearlColor>(),
+            _seeder.FromEnum<enPearlShape>(),
+            _seeder.FromEnum<enPearlType>())
+        { }
+    }
+    #endregion
 }
 

@@ -9,11 +9,11 @@ class Program
     {
         Console.WriteLine("Hello, Necklace!");
 
-        var n = new csNecklace(30, "African");
+        var n = new csNecklace(30, "African with Pearls as a class");
         Console.WriteLine(n);
 
-        n = new csNecklace(15, "European");
-        Console.WriteLine(n);
+        var n1 = new csNecklace1(15, "European with Pearls as a record");
+        Console.WriteLine(n1);
     }
 }
 
