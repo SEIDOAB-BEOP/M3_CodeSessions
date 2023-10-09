@@ -13,7 +13,7 @@ namespace _09_inheritance2
     {
         //public string Noise() => "Meow";
     }
-    public class csLabrador : csAnimal
+    public class csLabrador : csDog
     {
         //public string Noise() => "Voff Voff Rauw!";
     }
