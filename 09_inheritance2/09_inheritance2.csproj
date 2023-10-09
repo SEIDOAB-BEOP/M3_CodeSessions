@@ -3,12 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>_08_inheritance</RootNamespace>
+    <RootNamespace>_09_inheritance2</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SeedGenerator\Helpers.csproj" />
-  </ItemGroup>
 </Project>
