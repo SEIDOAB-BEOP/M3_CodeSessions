@@ -58,7 +58,7 @@ class Program
                     break;
 
                 case 2:
-
+                    //var res = SomethingCanGoWrong(100, 0); //Will cause an error
                     var res = SomethingCanGoWrong(100, 2);
                     Console.WriteLine($"Result: {res}");
                     break;
