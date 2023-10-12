@@ -8,64 +8,77 @@ class Program
         Console.WriteLine("11_error_handling");
         try
         {
-             ProcessUserInput();
+            do
+            {
+                ShowMenu();
+
+                int _menuSel;
+                if (!GetMenuSelection(out _menuSel))
+                {
+                    break;
+                }
+
+                ProcessMenuSelection(_menuSel);
+
+            } while (true);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Pls contact our service center, you have a virus in your computer");
             Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine("No more chances for you my friend");
         }
-        finally
-        {
-            Console.WriteLine("Thank you and goodbye");
-        }
-
-        //macOs only
-        Console.ReadKey();
-    }
-    private static void ProcessUserInput()
-    {
-        bool _continue = true;
-        do
-        {
-            Console.WriteLine("\n\nDon't Press Button 5 or 7!");
-            int buttonToPress;
-            if (!csConsoleInput.TryReadInt32("Which button do you want to press?", 1, 10, out buttonToPress))
-            {
-                _continue = false;
-                break;
-            }
-
-            try
-            {
-                PressTheButton(buttonToPress);
-                Console.WriteLine($"Button {buttonToPress} was pressed successfully");
-            }
-            catch (InsufficientMemoryException ex)
-            {
-                Console.WriteLine($"{ex.Message} - Why cant you listen!!");
-                throw;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"{ex.Message} - But it is alright my friend!");
-            }
-            finally
-            {
-                Console.WriteLine("Code here will always be executed!");
-            }
-        } while (_continue);
+        Console.WriteLine("\nThank you for playing");
     }
 
-    static void PressTheButton(int buttonNr)
+    public static void ShowMenu()
     {
-        if (buttonNr == 5)
-            throw new Exception("KaBoom!!");
+        Console.WriteLine("\n\nMenu:");
+        Console.WriteLine("1 - Good Choice");
+        Console.WriteLine("2 - DO NOT SELECT THIS");
+        Console.WriteLine("Q - Quit program");
+    }
 
-        if (buttonNr == 7)
-            throw new InsufficientMemoryException("You hopless guy!");
+    public static bool GetMenuSelection(out int menuSelection)
+    {
+        if (!csConsoleInput.TryReadInt32("Enter your selection", 1, 4, out menuSelection))
+        {
+            return false;
+        }
+        return true;
+    }
 
-        Console.WriteLine($"You pressed button {buttonNr}");
+    private static void ProcessMenuSelection(int _menuSel)
+    {
+        try
+        {
+            switch (_menuSel)
+            {
+                case 1:
+                    Console.WriteLine($"Good Choise: Everything is OK!");
+                    break;
+
+                case 2:
+
+                    var res = SomethingCanGoWrong(100, 2);
+                    Console.WriteLine($"Result: {res}");
+                    break;
+            }
+        }
+
+        catch (Exception ex)
+        {
+            Console.WriteLine($"{ex.Message} - Why cant you listen!!");
+            //throw;
+            Console.WriteLine("But you will get another chance!");
+        }
+    }
+
+    private static decimal SomethingCanGoWrong(decimal a, decimal b)
+    {
+        //throw new Exception("KaBoom!!");
+
+        var res = a / b;
+        return res;        
     }
 }
 
