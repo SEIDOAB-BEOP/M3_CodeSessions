@@ -61,6 +61,7 @@ class Program
 
     static void Main(string[] args)
     {
+        Console.WriteLine("01_class_basics");
         var stock1 = new Stock();
         Console.WriteLine(stock1);
 

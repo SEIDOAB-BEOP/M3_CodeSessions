@@ -1,11 +1,11 @@
 ﻿using Helpers;
-namespace _10_error_handling;
+namespace _11_error_handling;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Error handling");
+        Console.WriteLine("11_error_handling");
         try
         {
              ProcessUserInput();

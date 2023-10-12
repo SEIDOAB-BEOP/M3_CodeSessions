@@ -28,7 +28,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Console.WriteLine("02_Methods_again");
 
         var s1 = new Student("Martin");
         Console.WriteLine(s1.Grade);

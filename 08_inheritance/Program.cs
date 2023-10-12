@@ -91,7 +91,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Chefs!");
+        Console.WriteLine("08_inheritance!");
 
         Console.WriteLine("csChef");
         var chef1 = new csChef();

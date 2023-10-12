@@ -7,7 +7,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Necklace!");
+        Console.WriteLine("06_embedded_list");
 
         var n = new csNecklace(30, "African with Pearls as a class");
         Console.WriteLine(n);

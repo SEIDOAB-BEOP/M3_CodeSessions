@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Cats and Dogs!");
+        Console.WriteLine("09_inheritance2");
         Console.WriteLine(new csAnimal().Noise());
         Console.WriteLine(new csDog().Noise());
         Console.WriteLine(new csCat().Noise());

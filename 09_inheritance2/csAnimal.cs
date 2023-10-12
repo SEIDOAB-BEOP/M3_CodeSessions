@@ -16,7 +16,7 @@ namespace _09_inheritance2
 	{
         public override string Noise() => "Voff";
         public override string Name { get; }
-        public int Age = 17;
+        public new int Age = 17;
 
         private string _hate = "Cats";
         public string IHate() => $"I hate {_hate}";
@@ -41,8 +41,8 @@ namespace _09_inheritance2
     }
     public class csLabrador : csDog
     {
-        public string Noise() => "Voff Voff Rauw!";
-        public int Age = 10;
+        public override string Noise() => "Voff Voff Rauw!";
+        public new int Age = 10;
         public override string Name { get; }
         public string IAm() => "I the best";
         public string myAgeIs()

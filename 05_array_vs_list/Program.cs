@@ -6,7 +6,7 @@ namespace _05_array_vs_list // Note: actual namespace depends on the project nam
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("05_array_vs_list");
 
 
             int[] my_int_array = new int[10];

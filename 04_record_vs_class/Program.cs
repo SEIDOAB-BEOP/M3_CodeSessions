@@ -56,7 +56,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Console.WriteLine("04_record_vs_clas");
 
         var rnd = new csSeedGenerator();
         var p = new csPearl(rnd);

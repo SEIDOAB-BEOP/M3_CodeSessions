@@ -118,7 +118,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Wine!");
+        Console.WriteLine("03_struct_vs_class");
 
         var st_w1 = new stWine("Nice evening", enCountry.Spain,
             enGrapeType.Tempranillo, enWineType.Red, 80M);
