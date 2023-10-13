@@ -20,7 +20,7 @@ class Program
         var n = new csNecklace(3, "African with Pearls as a class");
         Console.WriteLine(n);
 
-        var n2 = new csNecklace("Manu halsband", p1, p2);
+        var n2 = new csNecklace("Another halsband", p1, p2);
         Console.WriteLine(n2);
        
         var n1 = new csNecklace1(15, "European with Pearls as a record");
