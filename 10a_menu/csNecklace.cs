@@ -1,7 +1,7 @@
 ﻿using System;
 using Helpers;
 
-namespace _06_embedded_list
+namespace _10a_menu
 {
     #region Necklace using Pearl as a class
     public class csNecklace
@@ -19,6 +19,10 @@ namespace _06_embedded_list
             return sRet;
         }
 
+        public csNecklace(string name)
+        {
+            Name = name;
+        }
         public csNecklace(int nrPearls, string name)
 		{
             Name = name;

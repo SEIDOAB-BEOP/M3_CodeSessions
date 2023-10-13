@@ -9,9 +9,20 @@ class Program
     {
         Console.WriteLine("06_embedded_list");
 
-        var n = new csNecklace(30, "African with Pearls as a class");
+        var rnd = new csSeedGenerator();
+        var p1 = new csPearl();
+        Console.WriteLine(p1);
+
+        var p2 = new csPearl(rnd);
+        Console.WriteLine(p2);
+
+
+        var n = new csNecklace(3, "African with Pearls as a class");
         Console.WriteLine(n);
 
+        var n2 = new csNecklace("Manu halsband", p1, p2);
+        Console.WriteLine(n2);
+       
         var n1 = new csNecklace1(15, "European with Pearls as a record");
         Console.WriteLine(n1);
     }
