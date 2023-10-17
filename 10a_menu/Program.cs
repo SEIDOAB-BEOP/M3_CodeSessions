@@ -14,6 +14,8 @@ class Program
     {
         Console.WriteLine("10a_menu");
 
+        //This instance will be valid for all menu iterations in the do..while loop
+        //could also have been stataic globals in Program class, but his is better
         var AppData = new csAppData
         {
             Necklace = new csNecklace("Pretty necklace"),
@@ -30,12 +32,22 @@ class Program
                 break;
             }
 
-            //Only if menu item selected
+            //Only if menu item selected do we get here
             ProcessMenuSelection(_menuSel, AppData);
+
+            //Clear the console output before menu presentations 
+            Clear();
 
         } while (true);
 
-        Console.WriteLine("Thank you!");
+        Console.WriteLine("Bye, thank you for playing!");
+    }
+
+    private static void Clear()
+    {
+        Console.WriteLine("Press a key to get back to meny");
+        Console.ReadKey();
+        Console.Clear();
     }
 
     private static void ProcessMenuSelection(int _menuSel, csAppData _appData)

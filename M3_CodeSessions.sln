@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_menu", "10_menu\10_menu.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10a_menu_necklace", "10a_menu\10a_menu_necklace.csproj", "{B32BAAE3-2F3D-4A42-8C61-9D2830C46765}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_generics", "12_generics\12_generics.csproj", "{05314722-7405-485A-8C21-3C2231727C28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{B32BAAE3-2F3D-4A42-8C61-9D2830C46765}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B32BAAE3-2F3D-4A42-8C61-9D2830C46765}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B32BAAE3-2F3D-4A42-8C61-9D2830C46765}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05314722-7405-485A-8C21-3C2231727C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05314722-7405-485A-8C21-3C2231727C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05314722-7405-485A-8C21-3C2231727C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05314722-7405-485A-8C21-3C2231727C28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
