@@ -21,7 +21,7 @@ namespace Helpers
         //In order to separate from real and seeded instances
         public bool Seeded { get; set; }
 
-        //Seeded The instance
+        //Seeded The instance of type T
         public T Seed(csSeedGenerator seedGenerator);
     }
     
@@ -281,7 +281,6 @@ namespace Helpers
 
             return _set.ToList();
         }
-
         #endregion
 
         #region Quotes

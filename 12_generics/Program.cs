@@ -21,7 +21,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, Secrets!");
+        Console.WriteLine("12_generics");
 
         var ms1 = new MySecrets<string, string>() { Secret1 = "Love", Secret2 = "Food" };
         Console.WriteLine(ms1);
