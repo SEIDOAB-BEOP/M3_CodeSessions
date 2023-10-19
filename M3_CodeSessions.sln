@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_IEquatable_IComparable",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14_repetition", "14_repetition\14_repetition.csproj", "{65BDA7DE-1F6B-4595-9367-BF46615D379B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11a_error_handling", "11a_error_handling\11a_error_handling.csproj", "{B3985D57-248E-4A62-B68A-B97BC79AEEDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{65BDA7DE-1F6B-4595-9367-BF46615D379B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65BDA7DE-1F6B-4595-9367-BF46615D379B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65BDA7DE-1F6B-4595-9367-BF46615D379B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3985D57-248E-4A62-B68A-B97BC79AEEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3985D57-248E-4A62-B68A-B97BC79AEEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3985D57-248E-4A62-B68A-B97BC79AEEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3985D57-248E-4A62-B68A-B97BC79AEEDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
