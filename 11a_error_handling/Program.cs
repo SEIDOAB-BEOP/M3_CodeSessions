@@ -23,8 +23,7 @@ class Program
         }
         Console.WriteLine(datesWritten);
 
-        Console.WriteLine($"\nDifferent solutions in setting random dates using for and while loops" +
-                            $"\nand try-catch and TryParse patterns");
+        Console.WriteLine($"\nDifferent error handling solutions");
         #region Using for-loop with i--
         /*
         DateTime[] myDates = new DateTime[100];
