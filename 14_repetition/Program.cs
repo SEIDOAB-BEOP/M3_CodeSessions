@@ -87,9 +87,9 @@ class Program
         }
         */
 
-        for (int i = 0; i < tc.Count; i++)
+        for (int r = 0; r < tc.Count; r++)
         {
-            Console.WriteLine(tc[i].Greeting());
+            Console.WriteLine(tc[r].Greeting());
         }
         #endregion
 
