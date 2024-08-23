@@ -1,4 +1,4 @@
-﻿using Helpers;
+﻿using Seido.Utilities.SeedGenerator;
 namespace _03_struct_vs_class;
 
 

@@ -1,5 +1,5 @@
 ﻿
-using Helpers;
+using Seido.Utilities.SeedGenerator;
 
 namespace _13_IEquatable_IComparable;
 

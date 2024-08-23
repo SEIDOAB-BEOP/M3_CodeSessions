@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Helpers
+namespace Seido {
+namespace Utilities {
+namespace ConsoleInput
 {
     public static class csConsoleInput
     {
@@ -91,4 +93,4 @@ namespace Helpers
     }
 
 }
-
+}}

@@ -1,4 +1,4 @@
-﻿using Helpers;
+﻿using Seido.Utilities.SeedGenerator;
 namespace _08_inheritance;
 
 public class csChef

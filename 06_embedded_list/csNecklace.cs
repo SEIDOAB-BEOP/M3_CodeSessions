@@ -1,5 +1,5 @@
 ﻿using System;
-using Helpers;
+using Seido.Utilities.SeedGenerator;
 
 namespace _06_embedded_list
 {

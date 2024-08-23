@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("11a_error_handling");
+        /*
         DateTime[] myDates = new DateTime[100];
         var rnd = new Random();
 
@@ -22,10 +23,12 @@ class Program
 
         }
         Console.WriteLine(datesWritten);
+        */
 
         Console.WriteLine($"\nDifferent error handling solutions");
-        #region Using for-loop with i--
         /*
+        #region Using for-loop with i--
+        
         DateTime[] myDates = new DateTime[100];
         var rnd = new Random();
 
@@ -46,12 +49,16 @@ class Program
             }
         }
         Console.WriteLine($"Dates written: {datesWritten}");
-        */
+        
         #endregion
+        */
         #region Using for-loop with try-catch
-        /*
+
+        DateTime[] myDates = new DateTime[100];
+        var rnd = new Random();
+
         Console.WriteLine("\nUsing for-loop with try-catch");
-        datesWritten = 0;
+        int datesWritten = 0;
         for (int i = 0; i < myDates.Length; i++)
         {
             bool ValidDate = false;
@@ -71,7 +78,7 @@ class Program
             datesWritten++;
         }
         Console.WriteLine($"Dates written: {datesWritten}");
-        */
+        
         #endregion
         #region Using for-loop with TryParse
         /*

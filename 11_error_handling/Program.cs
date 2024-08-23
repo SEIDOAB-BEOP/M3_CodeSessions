@@ -1,4 +1,5 @@
-﻿using Helpers;
+﻿using Seido.Utilities.SeedGenerator;
+using Seido.Utilities.ConsoleInput;
 namespace _11_error_handling;
 
 class Program
