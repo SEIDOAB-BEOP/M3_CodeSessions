@@ -19,8 +19,16 @@ class Program
     }
     class csCar
     {
-        public enCarColor Color;
+        public enCarColor Color {get; set;}
+        public string RegNr {get; set;}
 
+        public override string ToString() => $"{Color} {RegNr}";
+        public csCar()
+        {
+            var rnd = new csSeedGenerator();
+            Color = rnd.FromEnum<enCarColor>();
+            RegNr = $"{rnd.FromString("ABC, FGE, KLM, PTA, RPW, KJH")} {rnd.Next(100, 1000)}";
+        }
     }
 
     static void Main(string[] args)
@@ -39,7 +47,16 @@ class Program
 
         //A random enCarModel
         Console.WriteLine(rnd.FromEnum<enCarModel>());
+
+        var regNr = $"{rnd.FromString("ABC, FGE, KLM, PTA, RPW, KJH")} {rnd.Next(100, 1000)}";
+        Console.WriteLine(regNr);
         #endregion
+
+        for (int i = 0; i < 1000; i++)
+        {
+            var c1 = new csCar();
+            Console.WriteLine(c1);           
+        }
     }
 }
 
