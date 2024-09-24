@@ -1,4 +1,5 @@
-﻿using Seido.Utilities.SeedGenerator;
+﻿using System.Diagnostics.Contracts;
+using Seido.Utilities.SeedGenerator;
 
 namespace _04_record_vs_class;
 
@@ -6,6 +7,7 @@ public enum enPearlColor { Black, White, Pink }
 public enum enPearlShape { Round, DropShaped }
 public enum enPearlType { FreshWater, SaltWater }
 
+//Immutable Pearl as class
 public class csPearl
 {
     public int Size { get; init; }
@@ -14,6 +16,10 @@ public class csPearl
     public enPearlType Type { get; init; }
 
     public override string ToString() => $"{Size}mm {Color} {Shape} {Type} pearl.";
+
+    public csPearl SetColor (enPearlColor color) => new csPearl(this) {Color = color};
+    public csPearl SetShape (enPearlShape shape) => new csPearl(this) {Shape = shape};
+    public csPearl SetType (enPearlType type) => new csPearl(this) {Type = type};
 
     public csPearl() { }
     public csPearl(csSeedGenerator _seeder)
@@ -39,7 +45,8 @@ public class csPearl
     }
 }
 
-public record rePearl (int Size, enPearlColor Color, enPearlShape Shape, enPearlType Type)
+//immutable pearl as record class
+public record class rePearl (int Size, enPearlColor Color, enPearlShape Shape, enPearlType Type)
 {
     //Your own constructor, must call this(record properties...)
     public rePearl(csSeedGenerator _seeder) : this (
@@ -56,26 +63,34 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("04_record_vs_clas");
+        Console.WriteLine("04_record_vs_class");
 
         var rnd = new csSeedGenerator();
-        var p = new csPearl(rnd);
-
+        var p = new csPearl(25,enPearlColor.White, enPearlShape.DropShaped, enPearlType.FreshWater);
         Console.WriteLine(p);
 
-        var pc = new csPearl(p) { Size = 5 };
+        var p_cs = new csPearl(p) { Size = 5 };
+        Console.WriteLine(p_cs);
 
-        Console.WriteLine(pc);
+        var p_cc = p.SetColor(enPearlColor.Pink);
+        Console.WriteLine(p_cc);
+
+        var p_rnd = new csPearl(rnd);
+        System.Console.WriteLine(p_rnd);
+
 
         Console.WriteLine("\n\n");
         var pr = new rePearl(25,enPearlColor.White, enPearlShape.DropShaped, enPearlType.FreshWater);
         Console.WriteLine(pr);
 
-        var pr_c = pr with { Size = 5 };
-        Console.WriteLine(pr_c);
+        var pr_cs = pr with { Size = 5 };
+        Console.WriteLine(pr_cs);
 
-        var rnd_p = new rePearl(rnd);
-        Console.WriteLine(rnd_p);
+        var pr_cc = pr with { Color = enPearlColor.Pink };
+        Console.WriteLine(pr_cs);
+
+        var pr_rnd = new rePearl(rnd);
+        Console.WriteLine(pr_rnd);
     }
 }
 

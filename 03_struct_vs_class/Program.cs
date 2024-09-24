@@ -16,6 +16,11 @@ public struct stWine
 
     public decimal Price { get; set; }
 
+    #region operator overloading
+    public static bool operator ==(stWine w1, stWine w2) => w1.Equals(w2);
+    public static bool operator !=(stWine w1, stWine w2) => !w1.Equals(w2);
+    #endregion
+
     public override string ToString()
     {
         var s = $"Wine {Name} from {Country} is {WineType} and made from grapes {GrapeType}. The price is {Price:N2} Sek";
@@ -127,6 +132,7 @@ class Program
             enGrapeType.Tempranillo, enWineType.Red, 80M);
 
         Console.WriteLine($"struct Equals: {st_w1.Equals(st_w2)}");
+        Console.WriteLine($"struct Equals: {st_w1 == st_w2}");
 
         var cs_w1 = new csWine("Nice evening", enCountry.Spain,
             enGrapeType.Tempranillo, enWineType.Red, 80M);
@@ -165,7 +171,6 @@ class Program
         {
             Console.WriteLine("Both wines are NOT equal");
         }
-
     }
 }
 

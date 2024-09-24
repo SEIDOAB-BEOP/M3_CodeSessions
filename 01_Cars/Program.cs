@@ -52,11 +52,24 @@ class Program
         Console.WriteLine(regNr);
         #endregion
 
+        var cars = new List<csCar>();
         for (int i = 0; i < 1000; i++)
         {
-            var c1 = new csCar();
-            Console.WriteLine(c1);           
+            var c1 = new csCar() {Color = enCarColor.Burgundy};
+            cars.Add(c1);
         }
+
+        foreach (var item in cars)
+        {
+                System.Console.WriteLine(item);
+
+        }
+
+        var cars2 = cars;
+        cars2[0].RegNr = "WHAAT";
+
+        System.Console.WriteLine(cars[0]);
+        System.Console.WriteLine(cars2[0]);
     }
 }
 
