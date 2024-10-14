@@ -28,17 +28,18 @@ public class csPearl : IEquatable<csPearl>, IComparable<csPearl>
     public override int GetHashCode() => (this.Size, this.Color, this.Shape, this.Type).GetHashCode();
     #endregion
 
-    #region operator overloading
-    public static bool operator ==(csPearl o1, csPearl o2) => o1.Equals(o2);
-    public static bool operator !=(csPearl o1, csPearl o2) => !o1.Equals(o2);
-    #endregion
 
     #region Implementation IComparable<T> interface
     public int CompareTo(csPearl other)
     {
-        //Sort on Make -> Model -> Year
         if (this.Size != other.Size)
             return this.Size.CompareTo(other.Size);
+
+        if (this.Color != other.Color)
+            return this.Color.CompareTo(other.Color);
+
+        if (this.Shape != other.Shape)
+            return this.Shape.CompareTo(other.Shape);
 
         return this.Type.CompareTo(other.Type);
     }

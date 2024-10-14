@@ -1,88 +1,75 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Models;
 using Seido.Utilities.SeedGenerator;
 
-Console.WriteLine("Hello, Collections!");
+Console.WriteLine("Hello, Collections1!");
 var rnd = new csSeedGenerator();
 
-//Make a large list
-var pearlList1 = new List<csPearl>();
+//Instantiate and initialize a list
+var ints1 = new List<int>();
 for (int i = 0; i < 50; i++)
 {
-    pearlList1.Add(new csPearl(rnd));
+    ints1.Add(rnd.Next(0,100));
 }
 
 //Create deep copies
-var pearlList2 = pearlList1.Select(p => new csPearl(p)).ToList();
-var pearlList3 = pearlList1.Select(p => new csPearl(p)).ToList();
+var ints2 = ints1.Select(i => i).ToList();
 
 //Sort the list
-pearlList1.Sort();
-System.Console.WriteLine($"\n{nameof(pearlList1)} contains {pearlList1.Count} pearls");
-pearlList1.ForEach(pearl => System.Console.WriteLine(pearl));
+System.Console.WriteLine("\nSorted List");
+ints1.Sort();
+System.Console.WriteLine($"{nameof(ints1)} contains {ints1.Count} ints");
+ints1.ForEach(i => System.Console.WriteLine(i));
 
-//Get unique pearls
-var pearlUnique = new HashSet<csPearl>(pearlList1);
-System.Console.WriteLine($"\n{nameof(pearlUnique)} contains {pearlUnique.Count} pearls");
-pearlUnique.ToList().ForEach(pearl => System.Console.WriteLine(pearl));
+//Shuffle the list
+System.Console.WriteLine("\nShuffled List");
+for (int i = 0; i < 1000; i++)
+{
+    var idx1 = rnd.Next(0, ints1.Count);
+    var idx2 = rnd.Next(0, ints1.Count);
+    
+    ///swap using tupples
+    (ints1[idx1], ints1[idx2]) = (ints1[idx2], ints1[idx1]);
+}
+System.Console.WriteLine($"{nameof(ints1)} contains {ints1.Count} ints");
+ints1.ForEach(i => System.Console.WriteLine(i));
 
-//Get the pearls which were in duplicates
-pearlUnique.ToList().ForEach(pearl => pearlList1.Remove(pearl));
-var pearlDuplicates = new HashSet<csPearl>(pearlList1);
-System.Console.WriteLine($"\n{nameof(pearlDuplicates)} contains {pearlDuplicates.Count} pearls");
-pearlDuplicates.ToList().ForEach(pearl => System.Console.WriteLine(pearl));
 
-//Use Dictionary to Get Nr of pieces of each pearl
-System.Console.WriteLine("\nNr of pieces of each pearl");
-var nrPearls = new Dictionary<csPearl, int>();
-pearlList2.ForEach (p => {
-    if (nrPearls.ContainsKey(p))
+//Get unique ints
+System.Console.WriteLine("\nUnique items List");
+var intsUnique = new HashSet<int>(ints1);
+//var intsUnique = new SortedSet<int>(ints1);
+System.Console.WriteLine($"{nameof(intsUnique)} contains {intsUnique.Count} ints");
+intsUnique.ToList().ForEach(i => System.Console.WriteLine(i));
+
+//Does the list contain duplicates?
+System.Console.WriteLine($"\n{nameof(ints1)} contains duplicates: {ints1.Count != intsUnique.Count}");
+
+//Use Dictionary to Get Nr of pieces of each int
+System.Console.WriteLine("\nNr of pieces of each ints");
+var nrInts = new Dictionary<int, int>();
+ints2.ForEach (p => {
+    if (nrInts.ContainsKey(p))
     {
-         nrPearls[p]++;
+         nrInts[p]++;
     }
     else
     {
-        nrPearls.Add(p, 1);
+        nrInts.Add(p, 1);
     }
 });
-nrPearls.ToList().ForEach(item => System.Console.WriteLine($"{item.Value}pcs of {item.Key}"));
+nrInts.ToList().ForEach(item => System.Console.WriteLine($"{item.Value}pcs of {item.Key}"));
 
 
-//List only pairs and above
-System.Console.WriteLine("\nPairs and above");
-nrPearls.ToList().ForEach(item => 
+//List only duplicates
+System.Console.WriteLine("\nDuplicates");
+var intsDuplicates = new List<int>();
+nrInts.ToList().ForEach(item => 
 {
     if (item.Value >= 2)
-        System.Console.WriteLine($"{item.Value}pcs of {item.Key}");
-});
-
-
-//Get the nr of pearls according to Color
-System.Console.WriteLine("\nNr pearls according to Color");
-var nrPearlsColor = new Dictionary<enPearlColor, int>();
-pearlList2.ForEach (p => {
-    if (nrPearlsColor.ContainsKey(p.Color))
     {
-         nrPearlsColor[p.Color]++;
-    }
-    else
-    {
-        nrPearlsColor.Add(p.Color, 1);
+        intsDuplicates.Add(item.Key);
     }
 });
-nrPearlsColor.ToList().ForEach(item => System.Console.WriteLine($"{item.Value}pcs of {item.Key} pearls"));
 
-//Get the nr of pearls according to Color and type
-System.Console.WriteLine("\nNr pearls according to Color and type");
-var nrPearlsColorType = new Dictionary<(enPearlColor, enPearlType), int>();
-pearlList2.ForEach (p => {
-    if (nrPearlsColorType.ContainsKey((p.Color, p.Type)))
-    {
-         nrPearlsColorType[(p.Color, p.Type)]++;
-    }
-    else
-    {
-        nrPearlsColorType.Add((p.Color, p.Type), 1);
-    }
-});
-nrPearlsColorType.ToList().ForEach(item => System.Console.WriteLine($"{item.Value}pcs of {item.Key} pearls"));
+intsDuplicates.ForEach(i => System.Console.WriteLine(i));
+System.Console.WriteLine($"{nameof(intsDuplicates)} contains {intsDuplicates.Count} ints");
